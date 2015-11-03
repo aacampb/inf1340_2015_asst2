@@ -27,15 +27,16 @@ def pig_latinify(word):
     n = 0
     word = word.lower()
     vowels = ["a", "e", "i", "o", "u"]
-    for letter in word:
-        first_letter = word[n]
-        if first_letter in vowels:
-            return word + "yay"
-        else:
-            n += 1
-            letter = word[n]
-            if letter in vowels:
-                return word[n:] + word[:n] + "ay"
+    if len(word) > 0 and word.isalpha() and not word.isdigit():
+        for letter in word:
+            first_letter = word[n]
+            if first_letter in vowels:
+                return word + "yay"
+            else:
+                n += 1
+                letter = word[n]
+                if letter in vowels:
+                    return word[n:] + word[:n] + "ay"
 
     return result
 
