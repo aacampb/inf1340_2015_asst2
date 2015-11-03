@@ -21,6 +21,20 @@ def pig_latinify(word):
     :raises:
 
     """
+
     result = ""
 
+    n = 0
+    word = word.lower()
+    vowels = ["a", "e", "i", "o", "u"]
+    if len(word) > 0 and word.isalpha():
+        for letter in word:
+            first_letter = word[n]
+            if first_letter in vowels:
+                return word + "yay"
+
+
+
     return result
+
+#pig_latinify()
