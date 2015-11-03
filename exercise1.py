@@ -32,9 +32,12 @@ def pig_latinify(word):
             first_letter = word[n]
             if first_letter in vowels:
                 return word + "yay"
-
-
+        else:
+            n += 1
+            letter = word[n]
+            if letter in vowels:
+                return word[n:] + word[:n] + "ay"
 
     return result
 
-#pig_latinify()
+pig_latinify("scratch")
