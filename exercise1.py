@@ -27,11 +27,10 @@ def pig_latinify(word):
     n = 0
     word = word.lower()
     vowels = ["a", "e", "i", "o", "u"]
-    if len(word) > 0 and word.isalpha():
-        for letter in word:
-            first_letter = word[n]
-            if first_letter in vowels:
-                return word + "yay"
+    for letter in word:
+        first_letter = word[n]
+        if first_letter in vowels:
+            return word + "yay"
         else:
             n += 1
             letter = word[n]
@@ -40,4 +39,4 @@ def pig_latinify(word):
 
     return result
 
-pig_latinify("scratch")
+#pig_latinify()
