@@ -22,7 +22,8 @@ def find(input_string, substring, start, end):
 
     """
 
-    i = 0                          # index position 0
+    a = 0                      # index position 0
+    z = len(input_string)        # end position
     t = input_string               # long strand of DNA
     n = substring                  # short strand found in long strand
 
@@ -30,7 +31,7 @@ def find(input_string, substring, start, end):
     # return index position of first matching substring
 
     for i in len(input_string):
-        
+
 
 
 
