@@ -30,6 +30,7 @@ def find(input_string, substring, start, end):
     # return index position of first matching substring
 
     for i in len(input_string):
+        
 
 
 
