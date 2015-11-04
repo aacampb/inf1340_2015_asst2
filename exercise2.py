@@ -26,7 +26,6 @@ def find(input_string, substring, start, end):
     # return index position of first matching substring
 
 
-
     return -1
 
 
