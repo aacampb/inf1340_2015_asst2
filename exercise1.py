@@ -38,9 +38,8 @@ def pig_latinify(word):
                 if letter in vowels:
                     return word[n:] + word[:n] + "ay"
 
-# need to add try/except TypeError
-# to stop the program from crashing if no argument entered
-
     return result
 
-# pig_latinify()
+# need to add try/except TypeError to prevent program from crashing if no argument entered
+
+#pig_latinify()
