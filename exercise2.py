@@ -30,15 +30,16 @@ def find(input_string, substring, start, end):
     # iterate through input_string until substring match made
     # return index position of first matching substring
 
-    for ch in len(input_string):
-        if n in t:
+    for ch in input_string:
+        if n[0] in t:
+            return n[0:]
+        else:
+            return -1
+
+print find("this is an example", "is", 0, 40)
 
 
-
-
-    return -1
-
-find(input_string, substring, start, end)
+# find(input_string, substring, start, end)
 
 def multi_find(input_string, substring, start, end):
     """
