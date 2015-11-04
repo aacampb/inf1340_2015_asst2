@@ -25,6 +25,11 @@ def find(input_string, substring, start, end):
     # iterate through input_string until substring match made
     # return index position of first matching substring
 
+    index = 0
+
+    
+
+    return index
 
     return -1
 
