@@ -27,9 +27,14 @@ def find(input_string, substring, start, end):
 
     index = 0
 
-    
+    for
 
-    return index
+        if
+
+        if
+
+            return index
+            index += 1
 
     return -1
 
