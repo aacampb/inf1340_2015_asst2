@@ -38,7 +38,6 @@ def find(input_string, substring, start, end):
 
     return -1
 
-
 # find(input_string, substring, start, end)
 
 def multi_find(input_string, substring, start, end):
