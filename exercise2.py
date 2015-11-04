@@ -21,6 +21,15 @@ def find(input_string, substring, start, end):
     :raises:
 
     """
+
+    str1 = len(main_strand)     #long strand of DNA
+    str2 = len(sub_strand)      #sub-strand of DNA found in long strand
+
+    
+
+
+
+
     return -1
 
 
