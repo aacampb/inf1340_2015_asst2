@@ -21,17 +21,18 @@ def find(input_string, substring, start, end):
     :raises:
 
     """
+    # find substring in input_string
+    # iterate through input_string until substring found
+    # if substring found return index of substring
+    # if substring not found return -1
 
-    # iterate through input_string until substring match made
-    # return index position of first matching substring
-
+    input_string = i
+    substring = j
     index = 0
 
-    for
-
-        if
-
-        if
+    for ch in range(start: end):
+        if j in i:      # maybe len[i]?
+            if
 
             return index
 
