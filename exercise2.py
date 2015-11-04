@@ -22,25 +22,23 @@ def find(input_string, substring, start, end):
 
     """
 
-    a = 0                      # index position 0
-    z = len(input_string)        # end position
-    t = input_string               # long strand of DNA
-    n = substring                  # short strand found in long strand
+    i = 0                           # start
+    j = len(input_string)           # end
+    t = input_string                # long strand of DNA
+    n = substring                   # short strand found in long strand
 
     # iterate through input_string until substring match made
     # return index position of first matching substring
 
-    for i in len(input_string):
-
-
-
-
+    for ch in len(input_string):
+        if n in t:
 
 
 
 
     return -1
 
+find(input_string, substring, start, end)
 
 def multi_find(input_string, substring, start, end):
     """
