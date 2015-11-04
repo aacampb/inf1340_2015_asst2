@@ -22,10 +22,16 @@ def find(input_string, substring, start, end):
 
     """
 
-    str1 = len(main_strand)     #long strand of DNA
-    str2 = len(sub_strand)      #sub-strand of DNA found in long strand
+    i = 0
+    t = len(input_string)               # long strand of DNA
+    n = len(substring)                  # short strand found in long strand
 
-    
+    for i in input_string:
+
+
+
+
+
 
 
 
