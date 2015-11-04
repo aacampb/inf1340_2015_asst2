@@ -22,21 +22,12 @@ def find(input_string, substring, start, end):
 
     """
 
-    i = 0                           # start
-    j = len(input_string)           # end
-    t = input_string                # long strand of DNA
-    n = substring                   # short strand found in long strand
-
     # iterate through input_string until substring match made
     # return index position of first matching substring
 
-    for ch in input_string:
-        if n[0] in t:
-            return n[0:]
-        else:
-            return -1
 
-print find("this is an example", "is", 0, 40)
+
+    return -1
 
 
 # find(input_string, substring, start, end)
