@@ -32,10 +32,18 @@ def find(input_string, substring, start, end):
     index = 0
 
     if substring in input_string:
-        return input_string.index(substring, start, end)
+        index = input_string.index(substring, start, end)
+        return index
     return -1
 
-print find("Yes, hear Joyce say 'Yes' in Ulyeses.", "YES", 0, 40)
+# find()
+
+# test cases:
+# ("This is an ex-parrot", "parrot", 0, 20) returned 14
+# ("This is an ex-parrot", "Ni!", 0, 20) returned -1
+# ("Yes, hear Joyce say 'Yes' in Ulysses.", "yes", 0, 40), returned 0
+# ("Yes, hear Joyce say 'Yes' in Ulysses.", "say", 0, 40), returned 16
+# ("Yes, hear Joyce say 'Yes' in Ulysses.", "Parrot", 0, 40), returned -1
 
 def multi_find(input_string, substring, start, end):
     """
