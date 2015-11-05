@@ -13,6 +13,27 @@ __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
 
+GRADUATES = [["Number", "Surname", "Age"],
+            [7274, "Robinson", 37],
+            [7432, "O'Malley", 39],
+            [9824, "Darkes", 38]]
+
+MANAGERS = [["Number", "Surname", "Age"],
+            [9297, "O'Malley", 56],
+            [7432, "O'Malley", 39],
+            [9824, "Darkes", 38]]
+
+def schema_check(table1, table2):
+    """
+
+    :return:
+    """
+    # determine whether the 2 tables contain identical attributes: Number, Surname, Age
+    # return a new table that contains all unique rows that appear in either table
+
+    if table1[0] != table2[0]:
+        raise MismatchedAttributesException
+
 def union(table1, table2):
     """
     Perform the union set operation on tables, table1 and table2.
@@ -23,8 +44,10 @@ def union(table1, table2):
     :raises: MismatchedAttributesException:
         if tables t1 and t2 don't have the same attributes
     """
-    return []
+    schema_check(table1, table2)        #put at the beginning of each function
 
+    table3 = table1 + table2
+    return remove_duplicates(table3)
 
 def intersection(table1, table2):
     """
@@ -68,3 +91,4 @@ class MismatchedAttributesException(Exception):
     """
     pass
 
+schema_check(GRADUATES, MANAGERS)
