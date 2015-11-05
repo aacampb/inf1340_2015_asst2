@@ -17,9 +17,11 @@ def find(input_string, substring, start, end):
     A function to find the index value of the start of a substring
     contained within a longer string.
 
-    :param : input_string, substring, start, end
-    :return: index value of first letter of substring
-    :raises: return -1 if substring not found
+    :param :    input_string = argument consisting of a long string of characters;
+                substring = argument consisting of shorter string of characters found
+                in input_string , start, end
+    :return:    index value of first letter of substring
+    :raises:    return -1 if substring not found
 
     """
     # find substring in input_string
@@ -31,7 +33,7 @@ def find(input_string, substring, start, end):
     substring = substring.lower()
     index = 0
 
-    if substring in input_string:
+    if substring in input_string[start:end]:
         index = input_string.index(substring, start, end)
         return index
     return -1
@@ -57,3 +59,5 @@ def multi_find(input_string, substring, start, end):
     result = ""
 
     return result
+
+# multi_find()
