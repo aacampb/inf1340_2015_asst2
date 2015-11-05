@@ -54,7 +54,16 @@ def intersection(table1, table2):
     Describe your function
 
     """
-    return []
+    # return a new table with all unique rows from both tables
+
+    schema_check(table1, table2)
+
+    intersection_list = []
+    for lists1 in table1:
+        for lists2 in table2:
+            if lists1 == lists2:
+                intersection_list.append(lists1)
+    return intersection_list
 
 
 def difference(table1, table2):
@@ -62,7 +71,16 @@ def difference(table1, table2):
     Describe your function
 
     """
-    return []
+    schema_check(table1, table2)
+
+    count = 1
+
+    while count < len(table1):
+        for lists2 in table2:
+            if table1[count] == lists2:
+                table1.remove(table1[count])
+        count += 1
+    return table1
 
 
 #####################
@@ -90,5 +108,3 @@ class MismatchedAttributesException(Exception):
     don't have the same attributes.
     """
     pass
-
-schema_check(GRADUATES, MANAGERS)
