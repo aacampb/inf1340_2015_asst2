@@ -33,12 +33,12 @@ def find(input_string, substring, start, end):
     substring = substring.lower()
     index = 0
 
-    if substring in input_string[start:end]:
+    if substring in input_string[strat:end]:
         index = input_string.index(substring, start, end)
         return index
     return -1
 
-# find()
+print find("This is an ex-parrot!", "parrot", 0, 20)
 
 # test cases:
 # ("This is an ex-parrot", "parrot", 0, 20) returned 14
@@ -49,15 +49,15 @@ def find(input_string, substring, start, end):
 
 def multi_find(input_string, substring, start, end):
     """
-    Describe your function
+    A function that returns a list of all the index values of a substring contained within
+    a longer string.
 
     :param :
     :return:
     :raises:
 
     """
-    result = ""
 
-    return result
+
 
 # multi_find()
