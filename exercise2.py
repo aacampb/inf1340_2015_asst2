@@ -14,11 +14,12 @@ __license__ = "MIT License"
 
 def find(input_string, substring, start, end):
     """
-    Describe your function
+    A function to find the index value of the start of a substring
+    contained within a longer string.
 
-    :param :
-    :return:
-    :raises:
+    :param : input_string, substring, start, end
+    :return: index value of first letter of substring
+    :raises: return -1 if substring not found
 
     """
     # find substring in input_string
@@ -26,19 +27,15 @@ def find(input_string, substring, start, end):
     # if substring found return index of substring
     # if substring not found return -1
 
-    input_string = i
-    substring = j
+    input_string = input_string.lower()
+    substring = substring.lower()
     index = 0
 
-    for ch in range(start: end):
-        if j in i:      # maybe len[i]?
-            if
-
-            return index
-
+    if substring in input_string:
+        return input_string.index(substring, start, end)
     return -1
 
-# find(input_string, substring, start, end)
+print find("Yes, hear Joyce say 'Yes' in Ulyeses.", "YES", 0, 40)
 
 def multi_find(input_string, substring, start, end):
     """
@@ -52,4 +49,3 @@ def multi_find(input_string, substring, start, end):
     result = ""
 
     return result
-
