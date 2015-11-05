@@ -33,12 +33,12 @@ def find(input_string, substring, start, end):
     substring = substring.lower()
     index = 0
 
-    if substring in input_string[strat:end]:
+    if substring in input_string[start:end]:
         index = input_string.index(substring, start, end)
         return index
     return -1
 
-print find("This is an ex-parrot!", "parrot", 0, 20)
+# find()
 
 # test cases:
 # ("This is an ex-parrot", "parrot", 0, 20) returned 14
