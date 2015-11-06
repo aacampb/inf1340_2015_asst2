@@ -6,9 +6,9 @@ Test module for exercise1.py
 
 """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-__copyright__ = "2015 Susan Sim"
+__author__ = 'Aaron & Sebastien'
+__github__ = "aacampb & 2015SebINF1340"
+__copyright__ = "2015 Aaron & Sebastien"
 __license__ = "MIT License"
 
 
@@ -23,6 +23,29 @@ def test_basic():
 	assert pig_latinify("scratch") == "atchscray"
 	assert pig_latinify("is") == "isyay"
 	assert pig_latinify("apple") == "appleyay"
+	assert pig_latinify("scram") == "amscray"
+
+
+def test_capitals():
+	"""
+	Test for words with capital letters
+	"""
+	assert pig_latinify("Aaron") == "aaronyay"
+	assert pig_latinify("Toronto") == "orontotay"
+	assert pig_latinify("pyThoN") == "onpythay"
+
+
+def test_words_no_vowels():
+	"""
+	Test for words containing no vowels
+	"""
 	assert pig_latinify("cry") == "cryay"
 	assert pig_latinify("sky") == "skyay"
-	assert pig_latinify("scram") == "amscray"
+
+
+def test_single_letter():
+	"""
+	Test words consisting of a single letter
+	"""
+	assert pig_latinify("a") == "ayay"
+	assert pig_latinify("I") == "iyay"

@@ -4,9 +4,9 @@
 This module converts English words to Pig Latin words
 """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-__copyright__ = "2015 Susan Sim"
+__author__ = 'Aaron & Sebastien'
+__github__ = "aacampb & 2015SebINF1340"
+__copyright__ = "2015 Aaron & Sebastien"
 __license__ = "MIT License"
 
 
@@ -20,27 +20,23 @@ def pig_latinify(word):
 	"""
 
 	vowels = ["a", "e", "i", "o", "u"]
-	word = str(word)
 	word = word.lower()
 	i = 0
 	result = ""
 
-	while i < len(word) and word.isalpha():
-		if word[i] in vowels:
-			# not sure if this is needed?
+	while i < len(word):
+		if word[i] in vowels:		# not sure if this is needed?
 			if i == 0:
 				return word + "yay"
-			# stops the loop
-			break
+			break		# stops the loop
 		else:
 			try:
 				i += 1
 				if word[i] in vowels:
-					# slice opening consonants and append them and "ay" to the end of word.
-					return word[i:] + word[:i] + "ay"
+					return word[i:] + word[:i] + "ay"		# slice opening consonants & append to the end of word.
 			except IndexError:		# to stop words without vowels crashing program (Thanks Graham!)
 				return word + "ay"
 
 	return result
 
-#pig_latinify()
+# pig_latinify()
