@@ -1,46 +1,30 @@
-#!/usr/bin/env python
 
-""" Assignment 2, Exercise 1, INF1340, Fall, 2015. Pig Latin
 
-This module converts English words to Pig Latin words
-
-"""
-
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-__copyright__ = "2015 Susan Sim"
-__license__ = "MIT License"
-
+possibleVowels = "aeiouAEIOU"
 
 def pig_latinify(word):
     """
     Describe your function
+    :param : word - String will be tranformed into piglatin and returned as result.
+	         i - index indicator for string char position
+    :return: returns a piglatin version of the initial "word" parameter as "result"
+    :raises: No exceptions will be raised
+	"""
+    consonants = ""
+    i = 0
+    while i < len(word):
+	    if word[i] in possibleVowels: #is it a vowel?
+	        if i == 0: #If its the first itteration
+	            word = word + "yay" #add yay to the word
+		    break #stops the loop
+	    else:
+		    word = word[i:] + consonants + "ay"
+		    break #stops the loop
+    else:
+	    consonants.append(word[i])
 
-    :param :
-    :return:
-    :raises:
+	    i = i + 1
 
-    """
-
-    result = ""
-
-    n = 0
-    word = word.lower()
-    vowels = ["a", "e", "i", "o", "u"]
-
-    if len(word) > 0 and word.isalpha():
-        for letter in word:
-            first_letter = word[n]
-            if first_letter in vowels:
-                return word + "yay"
-            else:
-                n += 1                          # iterate through word until first vowel
-                letter = word[n]
-                if letter in vowels:
-                    return word[n:] + word[:n] + "ay"
+    result = word
 
     return result
-
-# need to add try/except TypeError to prevent program from crashing if no argument entered
-
-print pig_latinify("scram")
