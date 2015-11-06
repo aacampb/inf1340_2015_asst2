@@ -19,10 +19,14 @@ def test_find_basic():
     #tests whether our code actually works
     assert find("This is an ex-parrot", "parrot", 0, 20) == 14
 
-    #tests geared to generate errors
+    #tests geared to generate errors based on the substring
     assert find("This is an ex-parrot", 1, 0, 20) == 14
     assert find("This is an ex-parrot", 3.3, 0, 20) == 14
     assert find("This is an ex-parrot", "PARROT", 0, 20) == 14
+    assert find("This is an ex-parrot", "Parrot", 0, 20) == 14
+    assert find("This is an ex-parrot", "arthur", 0, 20) == 14
+
+
 
 def test_multi_find_basic():
     """
