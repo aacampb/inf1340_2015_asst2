@@ -11,59 +11,29 @@ __license__ = "MIT License"
 
 
 def pig_latinify(word):
-    """
-    Describe your function
-    :param : word - String will be tranformed into piglatin and returned as result.
-				i - index indicator for string char position
-    :return: returns a piglatin version of the initial "word" parameter as "result"
-    :raises: No exceptions will be raised
 	"""
-
-	possibleVowels = "aeiouAEIOU"
-	consonants = ""
-	i = 0
-	while i < len(word):
-		if word[i] in possibleVowels: #is it a vowel?
-			if i == 0: #If its the first itteration
-				word = word + "yay" #add yay to the word
-			break #stops the loop
-		else:
-			word = word[i:] + consonants + "ay"
-			break #stops the loop
-	else:
-		consonants.append(word[i])
-
-		i = i + 1
-
-	result = word
-
-	return result
-
-# pig_latinify()
-
-def pig_latinify(word):
-	"""
-
-	This function translates and English word into pig latin. Following the rules of pig latin,
-	words that begin with vowels will be appended by "yay", and words that begin with a consonant
-	will be appended by "ay".
-	:param word: Takes a string as an input.
-	:return: A modified string
+	This function translates an English word into pig latin. Following the rules of pig latin,
+	words that begin with vowels will be appended by "yay",
+	and words that begin with a consonant will be appended by "ay".
+	:param word: string will be translated into pig latin and returned as result.
+	:return: returns a pig latin version of the initial "word" parameter as "result"
 	"""
 
 	vowels = ["a", "e", "i", "o", "u"]
 	word = str(word)
 	word = word.lower()
-	n = 0
+	i = 0
 	result = ""
 
-	for letter in word:
-		if word[n] in vowels:
-			return word + "yay"
+	while i < len(word):
+		if word[i] in vowels:
+			if i == 0:
+				return word + "yay"
+			break
 		else:
-			n += 1
-			if word[n] in vowels:
-				return word[n:] +  word[:n] + "ay"
+			i += 1
+			if word[i] in vowels:
+				return word[i:] + word[:i] + "ay"
 	return result
 
-#pig_latinify()
+# pig_latinify()
