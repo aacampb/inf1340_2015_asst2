@@ -14,47 +14,58 @@ __license__ = "MIT License"
 
 
 GRADUATES = [["Number", "Surname", "Age"],
-            [7274, "Robinson", 37],
-            [7432, "O'Malley", 39],
-            [9824, "Darkes", 38]]
+             [7274, "Robinson", 37],
+             [7432, "O'Malley", 39],
+             [9824, "Darkes", 38]]
 
 MANAGERS = [["Number", "Surname", "Age"],
             [9297, "O'Malley", 56],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
+
 def schema_check(table1, table2):
     """
+    Function determines whether the schema of two tables contain matching attributes.
 
-    :return:
+    :param table1: a table (a list of lists)
+    :param table2: a table (a list of lists)
+    :raise: MismatchedAttributesException:
+            if table attributes do not match.
     """
-    # determine whether the 2 tables contain identical attributes: Number, Surname, Age
-    # return a new table that contains all unique rows that appear in either table
 
     if table1[0] != table2[0]:
         raise MismatchedAttributesException
 
+
 def union(table1, table2):
     """
-    Perform the union set operation on tables, table1 and table2.
+    Create a new table by combining one table with another.
+    Remove duplicate table entries with remove_duplicates helper function.
 
     :param table1: a table (a List of Lists)
     :param table2: a table (a List of Lists)
     :return: the resulting table
     :raises: MismatchedAttributesException:
-        if tables t1 and t2 don't have the same attributes
+            if tables t1 and t2 don't have the same attributes
     """
-    schema_check(table1, table2)        #put at the beginning of each function
+    schema_check(table1, table2)
 
     table3 = table1 + table2
     return remove_duplicates(table3)
 
+
 def intersection(table1, table2):
     """
-    Describe your function
+    Create a new table containing all the unique rows from both tables.
+
+    :param table1: a table (a List of Lists)
+    :param table2: a table (a List of Lists)
+    :return: the resulting table
+    :raises: MismatchedAttributesException:
+            if tables t1 and t2 don't have the same attributes
 
     """
-    # return a new table with all unique rows from both tables
 
     schema_check(table1, table2)
 
@@ -68,7 +79,11 @@ def intersection(table1, table2):
 
 def difference(table1, table2):
     """
-    Describe your function
+    :param table1: a table (a List of Lists)
+    :param table2: a table (a List of Lists)
+    :return:
+    :raises: MismatchedAttributesException:
+            if tables t1 and t2 don't have the same attributes
 
     """
     schema_check(table1, table2)
