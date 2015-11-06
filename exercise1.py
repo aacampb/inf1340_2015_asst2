@@ -45,7 +45,7 @@ def pig_latinify(word):
 	"""
 
 	This function translates and English word into pig latin. Following the rules of pig latin,
-	words that begin with vowels will be appended by "yay", and words that begin with a	consonant
+	words that begin with vowels will be appended by "yay", and words that begin with a consonant
 	will be appended by "ay".
 	:param word: Takes a string as an input.
 	:return: A modified string
