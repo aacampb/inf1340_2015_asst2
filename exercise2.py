@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 
 """ Assignment 2, Exercise 2, INF1340, Fall, 2015. DNA Sequencing
-
 This module converts performs substring matching for DNA sequencing
-
 """
 
 __author__ = 'Susan Sim'
@@ -12,44 +10,52 @@ __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
 
+
+
 def find(input_string, substring, start, end):
     """
-    Describe your function
+Describe your function
+    :param : input_string - String in which the substring must be located
+	substring - What we are looking for in input_string
+	start - Start index for our search
+	end - End index for our search
+	count - tracks the ammount of matching characters found in a row and keeps tracks of which character we are looking for
+	position - used as an indicator of which index we are currently at in our input_string
 
-    :param :
-    :return:
-    :raises:
-
+    :return: Function returns the starting index of the substring that has been located in the input_string. If the substring is not found: simply return -1
+    :raises: No exceptions will be raised
     """
-    # find substring in input_string
-    # iterate through input_string until substring found
-    # if substring found return index of substring
-    # if substring not found return -1
+count = 0
+position = start
 
-    input_string = i
-    substring = j
-    index = 0
+while position < end:
+    if input_string[position] == substring[count]:
+	count += 1
+	if count == len(substring):
+	    return position - len(substring)
+    else:
+  	count = 0;
 
-    for ch in range(start: end):
-        if j in i:      # maybe len[i]?
-            if
-
-            return index
+	position +=1
 
     return -1
 
-# find(input_string, substring, start, end)
 
 def multi_find(input_string, substring, start, end):
     """
     Describe your function
-
     :param :
     :return:
     :raises:
-
     """
-    result = ""
 
-    return result
+position = start
+result = ""
+
+while position < end:
+    tempResult = find(input_string, substring,position, end)
+position = tempResult + len(substring)
+result += tempResult + ","
+
+return result
 
