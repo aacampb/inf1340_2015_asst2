@@ -32,7 +32,12 @@ def test_find_basic():
     assert find("10","parrot", 0, 20) == 14
     assert find("This is an ex-parot", "parrot", 0, 20) == 14
     assert find("3.5", "parrot", 0, 20) == 14
-    
+    assert find("parrots are by far the most talkative birds", "parrot", 0, 20) == 14
+
+    #tests geared to generate errors based on start and end
+    assert find("This is an ex-parrot", "parrot", 0, 5) == 14
+    assert find("This is an ex-parrot", "parrot", 17, 20) == 14
+    assert find("This is an ex-parrot", "parrot", 3, 4) == 14
 
 def test_multi_find_basic():
     """
@@ -45,4 +50,6 @@ def test_multi_find_basic():
     assert multi_find("Ni! Nay! Ni! Nay! Ni!", "Ni", 0, 20) == "0,4,8,12"
     assert multi_find(1, 2, 0, 20) == "0, 4, 8, 12"
     assert multi_find(2.0, 2, 0, 20) == "0,4,8, 12"
-
+    assert multi_find("Nah!, Nope!, Never!, Nine!", "Ni", 0, 20) == "0,4,8,12"
+    assert multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20) == "5, 7, 9,11"
+    
