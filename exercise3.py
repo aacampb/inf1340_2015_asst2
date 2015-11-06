@@ -7,9 +7,9 @@ implemented as lists of lists.
 
 """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-__copyright__ = "2015 Susan Sim"
+__author__ = 'Aaron & Sebastien'
+__github__ = "aacampb & 2015SebINF1340"
+__copyright__ = "2015 Aaron & Sebastien"
 __license__ = "MIT License"
 
 
@@ -34,6 +34,7 @@ def schema_check(table1, table2):
             if table attributes do not match.
     """
 
+    # compare the first row of each table
     if table1[0] != table2[0]:
         raise MismatchedAttributesException
 
@@ -49,8 +50,8 @@ def union(table1, table2):
     :raises: MismatchedAttributesException:
             if tables t1 and t2 don't have the same attributes
     """
-    schema_check(table1, table2)
 
+    schema_check(table1, table2)
     table3 = table1 + table2
     return remove_duplicates(table3)
 
@@ -64,32 +65,35 @@ def intersection(table1, table2):
     :return: the resulting table
     :raises: MismatchedAttributesException:
             if tables t1 and t2 don't have the same attributes
-
     """
 
     schema_check(table1, table2)
-
     intersection_list = []
+    # iterate through rows in each table
     for lists1 in table1:
         for lists2 in table2:
+            # compare the rows in each table to each other
             if lists1 == lists2:
+                # add unique entries from second table to first table
                 intersection_list.append(lists1)
     return intersection_list
 
 
 def difference(table1, table2):
     """
+    Create a new table that contains all of the unique rows from first table,
+    but not the second table.
+
     :param table1: a table (a List of Lists)
     :param table2: a table (a List of Lists)
-    :return:
+    :return: the resulting table
     :raises: MismatchedAttributesException:
             if tables t1 and t2 don't have the same attributes
 
     """
+
     schema_check(table1, table2)
-
-    count = 1
-
+    count = 1       # begin at index 1 to exclude table headers
     while count < len(table1):
         for lists2 in table2:
             if table1[count] == lists2:
@@ -122,4 +126,5 @@ class MismatchedAttributesException(Exception):
     Raised when attempting set operations with tables that
     don't have the same attributes.
     """
+
     pass
