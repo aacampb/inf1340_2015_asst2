@@ -16,22 +16,13 @@ from exercise1 import pig_latinify
 
 
 def test_basic():
-    """
-    Basic test cases from assignment hand out
-    """
-    assert pig_latinify("dog") == "ogday"
-    assert pig_latinify("scratch") == "atchscray"
-    assert pig_latinify("is") == "isyay"
-    assert pig_latinify("apple") == "appleyay"
-    #tests for more elaborate words
-    assert pig_latinify("drummondville")
-
-    #some additional test cases that should generate errors
-    assert pig_latinify("1") == "1yay"
-    assert pig_latinify(1) == "oneyay"
-    assert pig_latinify(3.4) == "oatflay"
-
-    #additional potential input scenarios
-    assert pig_latinify("épée")
-    assert pig_latinify("educação")
-    assert pig_latinify("dueño")
+	"""
+	Basic test cases from assignment hand out
+	"""
+	assert pig_latinify("dog") == "ogday"
+	assert pig_latinify("scratch") == "atchscray"
+	assert pig_latinify("is") == "isyay"
+	assert pig_latinify("apple") == "appleyay"
+	assert pig_latinify("cry") == "cryay"
+	assert pig_latinify("sky") == "skyay"
+	assert pig_latinify("scram") == "amscray"

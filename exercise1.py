@@ -25,7 +25,7 @@ def pig_latinify(word):
 	i = 0
 	result = ""
 
-	while i < len(word):
+	while i < len(word) and word.isalpha():
 		if word[i] in vowels:
 			# not sure if this is needed?
 			if i == 0:
@@ -33,11 +33,14 @@ def pig_latinify(word):
 			# stops the loop
 			break
 		else:
-			i += 1
-			if word[i] in vowels:
-				# slice opening consonants and append them and "ay" to the end of word.
-				return word[i:] + word[:i] + "ay"
+			try:
+				i += 1
+				if word[i] in vowels:
+					# slice opening consonants and append them and "ay" to the end of word.
+					return word[i:] + word[:i] + "ay"
+			except IndexError:		# to stop words without vowels crashing program (Thanks Graham!)
+				return word + "ay"
 
 	return result
 
-# pig_latinify()
+#pig_latinify()
