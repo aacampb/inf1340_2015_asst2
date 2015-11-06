@@ -146,6 +146,7 @@ def test_difference():
 	else:
 		assert False
 
+
 LIBRARY_1 = [["Title", "Author_Last_Name", "Holdings"],
 			 ["Hitcher's Guide to the Galaxy", "Adams", "Robarts"],
 			 ["Suite Venitienne", "Calle", "Robarts"],
@@ -157,6 +158,7 @@ LIBRARY_2 = [["Title", "Author_Last_Name", "Holdings"],
 			 ["Restaurant at the End of the Universe", "Adams", "Pratt"],
 			 ["Arcades Project", "Benjamin", "Robarts"],
 			 ["Practical Programming", "Gries, Campbell", "Robarts"]]
+
 
 def my_test_union():
 	"""
@@ -182,3 +184,14 @@ def my_test_intersection():
 			  ["Practical Programming", "Gries, Campbell", "Robarts"]]
 
 	assert result == intersection(LIBRARY_1, LIBRARY_2)
+
+
+def my_test_difference():
+	"""
+	Test difference operation.
+	"""
+	result = [["Title", "Author_Last_Name", "Holdings"],
+			  ["Suite Venitienne", "Calle", "Robarts"],
+			  ["Illuminations", "Benjamin", "Pratt"]]
+
+	assert result == difference(LIBRARY_1, LIBRARY_2)
