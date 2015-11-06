@@ -123,3 +123,4 @@ class MismatchedAttributesException(Exception):
     don't have the same attributes.
     """
     pass
+
