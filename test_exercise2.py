@@ -26,7 +26,13 @@ def test_find_basic():
     assert find("This is an ex-parrot", "Parrot", 0, 20) == 14
     assert find("This is an ex-parrot", "arthur", 0, 20) == 14
 
-
+    #tests geared to generate errors based on input_string
+    assert find("This is an ex-general", "parrot", 0, 20) == 14
+    assert find(10, "parrot", 0, 20) == 14
+    assert find("10","parrot", 0, 20) == 14
+    assert find("This is an ex-parot", "parrot", 0, 20) == 14
+    assert find("3.5", "parrot", 0, 20) == 14
+    
 
 def test_multi_find_basic():
     """
