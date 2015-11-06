@@ -29,32 +29,41 @@ MANAGERS = [["Number", "Surname", "Age"],
 # tables with mismatch headings in table1 and an extra column in table2
 
 GRADS_WRONG = [["Number", "Surname", "Sex"],
-			 [7274, "Robinson", "M"],
-			 [7432, "O'Malley", "F"],
-			 [9824, "Darkes", "N/A"]]
+			   [7274, "Robinson", "M"],
+			   [7432, "O'Malley", "F"],
+			   [9824, "Darkes", "N/A"]]
 
-MNGRS_WRONG = [["Number", "Surname", "FirstName", "Sex",],
-			[9297, "O'Malley", "Martha", "F",],
-			[7432, "O'Malley", "Clark" "M",],
-			[9824, "Darkes", "Hortense", "F",]]
+MNGRS_WRONG = [["Number", "Surname", "FirstName", "Sex"],
+			   [9297, "O'Malley", "Martha", "F", ],
+			   [7432, "O'Malley", "Clark" "M", ],
+			   [9824, "Darkes", "Hortense", "F", ]]
+
 
 #####################
 # HELPER FUNCTIONS ##
 #####################
+
 def is_equal(t1, t2):
 	return t1.sort() == t2.sort()
-
 
 
 ###################
 # TEST FUNCTIONS ##
 ###################
+
 def test_schema_check():
 	"""
 	Test to determine whether an error is thrown if the columns do not match
 	"""
 	try:
 		schema_check(GRADUATES, MNGRS_WRONG)
+	except MismatchedAttributesException:
+		assert True
+	else:
+		assert False
+
+	try:
+		schema_check(GRADS_WRONG, MANAGERS)
 	except MismatchedAttributesException:
 		assert True
 	else:
@@ -96,6 +105,20 @@ def test_intersection():
 
 	# intersection mismatch
 
+	try:
+		intersection(GRADS_WRONG, MNGRS_WRONG)
+	except MismatchedAttributesException:
+		assert True
+	else:
+		assert False
+
+	try:
+		intersection(MANAGERS, GRADS_WRONG)
+	except MismatchedAttributesException:
+		assert True
+	else:
+		assert False
+
 
 def test_difference():
 	"""
@@ -107,4 +130,55 @@ def test_difference():
 
 	assert is_equal(result, difference(GRADUATES, MANAGERS))
 
+	# mismatched tables
 
+	try:
+		difference(GRADS_WRONG, MANAGERS)
+	except MismatchedAttributesException:
+		assert True
+	else:
+		assert False
+
+	try:
+		difference(MNGRS_WRONG, MANAGERS)
+	except MismatchedAttributesException:
+		assert True
+	else:
+		assert False
+
+LIBRARY_1 = [["Title", "Author_Last_Name", "Holdings"],
+			 ["Hitcher's Guide to the Galaxy", "Adams", "Robarts"],
+			 ["Suite Venitienne", "Calle", "Robarts"],
+			 ["Practical Programming", "Gries, Campbell", "Robarts"],
+			 ["Illuminations", "Benjamin", "Pratt"]]
+
+LIBRARY_2 = [["Title", "Author_Last_Name", "Holdings"],
+			 ["Hitcher's Guide to the Galaxy", "Adams", "Robarts"],
+			 ["Restaurant at the End of the Universe", "Adams", "Pratt"],
+			 ["Arcades Project", "Benjamin", "Robarts"],
+			 ["Practical Programming", "Gries, Campbell", "Robarts"]]
+
+def my_test_union():
+	"""
+    Test union operation.
+    """
+	result = [["Title", "Author_Last_Name", "Holdings"],
+			  ["Hitcher's Guide to the Galaxy", "Adams", "Robarts"],
+			  ["Suite Venitienne", "Calle", "Robarts"],
+			  ["Practical Programming", "Gries, Campbell", "Robarts"],
+			  ["Illuminations", "Benjamin", "Pratt"],
+			  ["Restaurant at the End of the Universe", "Adams", "Pratt"],
+			  ["Arcades Project", "Benjamin", "Robarts"]]
+
+	assert result == union(LIBRARY_1, LIBRARY_2)
+
+
+def my_test_intersection():
+	"""
+	Test intersection operation.
+	"""
+	result = [["Title", "Author_Last_Name", "Holdings"],
+			  ["Hitcher's Guide to the Galaxy", "Adams", "Robarts"],
+			  ["Practical Programming", "Gries, Campbell", "Robarts"]]
+
+	assert result == intersection(LIBRARY_1, LIBRARY_2)
