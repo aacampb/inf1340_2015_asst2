@@ -11,32 +11,34 @@ __license__ = "MIT License"
 
 
 
-
 def find(input_string, substring, start, end):
+    if end > len(input_string):
+        end == len(input_string)
+
     """
-Describe your function
-    :param : input_string - String in which the substring must be located
-	substring - What we are looking for in input_string
-	start - Start index for our search
-	end - End index for our search
-	count - tracks the ammount of matching characters found in a row and keeps tracks of which character we are looking for
-	position - used as an indicator of which index we are currently at in our input_string
+        Describe your function
+        :param : input_string - String in which the substring must be located
+	         substring - What we are looking for in input_string
+			 start - Start index for our search
+			 end - End index for our search
+			 count - tracks the amount of matching characters found in a row and keeps tracks of which character we are looking for
+			 position - used as an indicator of which index we are currently at in our input_string
 
     :return: Function returns the starting index of the substring that has been located in the input_string. If the substring is not found: simply return -1
     :raises: No exceptions will be raised
     """
-count = 0
-position = start
+    count = 0
+    position = start
 
-while position < end:
-    if input_string[position] == substring[count]:
-	count += 1
-	if count == len(substring):
-	    return position - len(substring)
-    else:
-  	count = 0;
-
-	position +=1
+    while position < end:
+        if input_string[position] == substring[count]:
+            count += 1
+            if count == len(substring):
+                return position - (len(substring)-1)
+        else:
+            count = 0
+        #print position
+        position +=1
 
     return -1
 
@@ -49,13 +51,21 @@ def multi_find(input_string, substring, start, end):
     :raises:
     """
 
-position = start
-result = ""
+    position = start
+    result = ""
 
-while position < end:
-    tempResult = find(input_string, substring,position, end)
-position = tempResult + len(substring)
-result += tempResult + ","
+    while position < end-1:
+        if result !="":
+            result +=","
 
-return result
+
+
+        tempResult = find(input_string, substring,position, end)
+        position = tempResult + len(substring)
+        result += str(tempResult)
+
+    return result
+
+assert find("This is an ex-parrot", "parrot", 0, 20) ==14
+assert multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 15)
 
