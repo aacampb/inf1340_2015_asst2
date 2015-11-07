@@ -9,65 +9,46 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
-
 def find(input_string, substring, start, end):
 	"""
-	Function to determine the index position of a of substring found within a string.
-	:param input_string: string
-	:param substring: string found in input_string
-	:param start: beginning of input_string
-	:param end: end of input_string
-	:return:
-	":raise: No exceptions will be raised
+	Function to find a substring within a longer string.
+	:param :
+	:return : index value of the first character of substring found in input_string
+	:raises :
 	"""
-	count = 0
-	position = start
 
-	while position < end:
-		if input_string[position] == substring[count]:
-			count += 1
-			if count == len(substring):
-				return position - (len(substring)-1)
-		else:
-			count = 0
-			# print position
-		position += 1
 
-	return -1
+	index = 0
+	for ch in range(start, end):
+		if input_string[index:index + len(substring)] == substring:
+			return index
+		index += 1
+	else:
+		return -1
 
 # find()
 
 
 def multi_find(input_string, substring, start, end):
 	"""
-    Describe your function
-    :param : we are essentially using the same formula as the our find function by using the find function
-            in our tempResult function
-     substring - What we are looking for in input_string
-			 start - Start index for our search
-			 end - End index for our search
-			 count - tracks the amount of matching characters found in a row and keeps tracks of which character we are looking for
-			 position - used as an indicator of which index we are currently at in our input_string
 
-    :return: Function returns the starting index of the substring that has been located in the input_string.
-    If the substring is not found: simply return -1
-    If the substring is found, tempResult will continue until the next match is found until end.
-    :raises: No exceptions will be raised
-    """
+	:param input_string:
+	:param substring:
+	:param start:
+	:param end:
+	:return:
+	"""
 
-    position = start
-    result = ""
+	index = 0
+	result = ""
+	while index < end:
+		for ch in range(start, end):
+			if input_string[index:index + len(substring)] == substring:
+				result += str(index) + " ,"
+			index += 1
+		result = result[0:-1]
+		return result
+	else:
+		return " "
 
-    while position < end-1:
-        if result !="":
-            result +=","
-
-
-
-        tempResult = find(input_string, substring,position, end)
-        position = tempResult + len(substring)
-        result += str(tempResult)
-
-    return result
-
-# print multi_find("Ni!, Ni!, Ni!, Ni, Ni!", "Ni", 0, 20)
+# multi_find()
