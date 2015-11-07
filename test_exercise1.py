@@ -6,9 +6,9 @@ Test module for exercise1.py
 
 """
 
-__author__ = 'Aaron & Sebastien'
-__github__ = "aacampb & 2015SebINF1340"
-__copyright__ = "2015 Aaron & Sebastien"
+__author__ = 'Aaron Campbell, Sebastien Dagenais-Maniatopoulos & Susan Sim'
+__email__ = "aaronl.campbell@mail.utoronto.ca, sebastien.maniatopoulos@mail.utoronto.ca & ses@drsusansim.org"
+__copyright__ = "2015 Aaron Campbell & Sebastien Dagenais-Maniatopoulos & Susan Sim"
 __license__ = "MIT License"
 
 
