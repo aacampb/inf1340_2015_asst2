@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 
 """ Assignment 2, Exercise 2, INF1340, Fall, 2015. DNA Sequencing

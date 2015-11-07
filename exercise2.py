@@ -9,6 +9,7 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
+
 def find(input_string, substring, start, end):
 	"""
 	Function to find a substring within a longer string.
@@ -44,11 +45,11 @@ def multi_find(input_string, substring, start, end):
 	while index < end:
 		for ch in range(start, end):
 			if input_string[index:index + len(substring)] == substring:
-				result += str(index) + " ,"
+				result += str(index) + ","
 			index += 1
 		result = result[0:-1]
 		return result
 	else:
 		return " "
 
-# multi_find()
+print multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20)
