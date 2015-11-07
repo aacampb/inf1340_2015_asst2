@@ -10,37 +10,32 @@ __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
 
-
 def find(input_string, substring, start, end):
-    if end > len(input_string):
-        end == len(input_string)
+	"""
+	Function to determine the index position of a of substring found within a string.
+	:param input_string: string
+	:param substring: string found in input_string
+	:param start: beginning of input_string
+	:param end: end of input_string
+	:return:
+	":raise: No exceptions will be raised
+	"""
+	count = 0
+	position = start
 
-    """
-    Describe your function
-        :param : input_string - String in which the substring must be located
-	         substring - What we are looking for in input_string
-			 start - Start index for our search
-			 end - End index for our search
-			 count - tracks the amount of matching characters found in a row and keeps tracks of which character we are looking for
-			 position - used as an indicator of which index we are currently at in our input_string
+	while position < end:
+		if input_string[position] == substring[count]:
+			count += 1
+			if count == len(substring):
+				return position - (len(substring)-1)
+		else:
+			count = 0
+			# print position
+		position += 1
 
-    :return: Function returns the starting index of the substring that has been located in the input_string. If the substring is not found: simply return -1
-    :raises: No exceptions will be raised
-    """
-    count = 0
-    position = start
+	return -1
 
-    while position < end:
-        if input_string[position] == substring[count]:
-            count += 1
-            if count == len(substring):
-                return position - (len(substring)-1)
-        else:
-            count = 0
-        #print position
-        position +=1
-
-    return -1
+# find()
 
 
 def multi_find(input_string, substring, start, end):
@@ -75,3 +70,4 @@ def multi_find(input_string, substring, start, end):
 
     return result
 
+# print multi_find("Ni!, Ni!, Ni!, Ni, Ni!", "Ni", 0, 20)
