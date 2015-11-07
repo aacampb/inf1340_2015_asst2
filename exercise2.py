@@ -20,6 +20,8 @@ def find(input_string, substring, start, end):
 
 
 	index = 0
+	input_string = input_string.lower()
+	substring = substring.lower()
 	for ch in range(start, end):
 		if input_string[index:index + len(substring)] == substring:
 			return index
@@ -27,7 +29,7 @@ def find(input_string, substring, start, end):
 	else:
 		return -1
 
-# find()
+# print find("I am Arthur, King of the Britons", "King", 0, 30)
 
 
 def multi_find(input_string, substring, start, end):
@@ -41,6 +43,8 @@ def multi_find(input_string, substring, start, end):
 	"""
 
 	index = 0
+	input_string = input_string.lower()
+	substring = substring.lower()
 	result = ""
 	while index < end:
 		for ch in range(start, end):
@@ -50,6 +54,6 @@ def multi_find(input_string, substring, start, end):
 		result = result[0:-1]
 		return result
 	else:
-		return " "
+		return ""
 
-print multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20)
+# print multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20)
