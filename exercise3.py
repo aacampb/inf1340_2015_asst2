@@ -89,12 +89,11 @@ def difference(table1, table2):
     :return: the resulting table
     :raises: MismatchedAttributesException:
             if tables t1 and t2 don't have the same attributes
-
     """
 
     schema_check(table1, table2)
-    count = 1       # begin at index 1 to exclude table headers
-    while count < len(table1):
+    count = 1       # begin at index 1 to exclude table headers from count
+    while count < len(table1):      #
         for lists2 in table2:
             if table1[count] == lists2:
                 table1.remove(table1[count])

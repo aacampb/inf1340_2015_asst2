@@ -22,10 +22,10 @@ def find(input_string, substring, start, end):
 	"""
 
 	index = 0
-	input_string = input_string.lower()
+	input_string = input_string.lower()		# correct for variations in case
 	substring = substring.lower()
-	for ch in range(start, end):
-		if input_string[index:index + len(substring)] == substring:
+	for ch in range(start, end):		# iterate through the string
+		if input_string[index:index + len(substring)] == substring:		# compare slice from both strings
 			return index
 		index += 1
 	else:
@@ -54,9 +54,9 @@ def multi_find(input_string, substring, start, end):
 	while index < end:
 		for ch in range(start, end):
 			if input_string[index:index + len(substring)] == substring:
-				result += str(index) + ","
+				result += str(index) + ","		# convert int
 			index += 1
-		result = result[0:-1]
+		result = result[0:-1]		# return slice of all index points
 		return result
 	else:
 		return ""
