@@ -4,20 +4,22 @@
 This module converts performs substring matching for DNA sequencing
 """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-__copyright__ = "2015 Susan Sim"
+__author__ = 'Aaron Campbell, Sebastien Dagenais-Maniatopoulos & Susan Sim'
+__email__ = "aaronl.campbell@mail.utoronto.ca, sebastien.maniatopoulos@mail.utoronto.ca & ses@drsusansim.org"
+__copyright__ = "2015 Aaron Campbell & Sebastien Dagenais-Maniatopoulos & Susan Sim"
 __license__ = "MIT License"
 
 
 def find(input_string, substring, start, end):
 	"""
 	Function to find a substring within a longer string.
-	:param :
+	:param input_string: phrase or string of letters
+	:param substring: string found within input_string
+	:param start: first index position of input_string
+	:param end: last index position of input_string
 	:return : index value of the first character of substring found in input_string
 	:raises :
 	"""
-
 
 	index = 0
 	input_string = input_string.lower()
@@ -29,17 +31,20 @@ def find(input_string, substring, start, end):
 	else:
 		return -1
 
-# print find("I am Arthur, King of the Britons", "King", 0, 30)
+# find()
 
 
 def multi_find(input_string, substring, start, end):
 	"""
+	Function to find all of the instances of a substring within in a longer string.
+	Return a list of the index value for the first character of each found instance.
 
-	:param input_string:
-	:param substring:
-	:param start:
-	:param end:
-	:return:
+	:param input_string: phrase or string of letters
+	:param substring: string found within input_string
+	:param start: first index position of input_string
+	:param end: last index position of input_string
+	:return: list of index values of first character of each instance of substring found in input_string,
+			returns empty string if no instances found
 	"""
 
 	index = 0
@@ -56,4 +61,4 @@ def multi_find(input_string, substring, start, end):
 	else:
 		return ""
 
-# print multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20)
+# multi_find()
